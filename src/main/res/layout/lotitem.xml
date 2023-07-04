@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/h_lot"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="4"
+            android:background="@color/button1"
+            android:textSize="5pt" />
+
+        <View
+            android:layout_width="1dip"
+            android:layout_height="30dp"
+            android:layout_gravity="center_horizontal"
+            android:background="#EEEFFF" />
+
+        <TextView
+            android:id="@+id/h_lotstatus"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="4"
+            android:background="@color/button1"
+            android:textSize="5pt" />
+
+        <View
+            android:layout_width="1dip"
+            android:layout_height="30dp"
+            android:layout_gravity="center_horizontal"
+            android:background="#EEEFFF" />
+
+        <TextView
+            android:id="@+id/h_lotsdate"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="5"
+            android:background="@color/button1"
+            android:textSize="5pt" />
+</LinearLayout>

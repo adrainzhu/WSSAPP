@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/dtbackground"
+    tools:context=".ui.Settings.SettingsFragment">
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="500dp"
+        android:layout_gravity="center"
+
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="2"
+            android:text="领料节点id:"
+            android:textColor="#FFFFFF"
+            android:textSize="12pt" />
+
+        <EditText
+            android:id="@+id/ll_nodeid"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="2"
+            android:inputType="number"
+            android:textColor="#FFFFFF"
+            android:textSize="12pt" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="70dp">
+
+        <Button
+            android:id="@+id/savebutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="270dp"
+            android:background="@drawable/loginselector"
+            android:text="保  存"
+            android:textColor="@color/dtorange"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:typeface="sans" />
+    </LinearLayout>
+</FrameLayout>

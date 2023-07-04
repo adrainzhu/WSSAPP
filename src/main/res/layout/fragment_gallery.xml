@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.gallery.GalleryFragment"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/button2"
+        android:text="待出库数据"
+        android:textColor="#FFFFFF"
+        android:textSize="10pt" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:background="@color/button1"
+            android:text="领料单号"
+            android:textSize="8pt" />
+        <View
+            android:layout_width="1dip"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:background="#EEEFFF" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:background="@color/button1"
+            android:text="申请人"
+            android:textSize="8pt" />
+        <View
+            android:layout_width="1dip"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:background="#EEEFFF" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:background="@color/button1"
+            android:text="材料类别"
+            android:textSize="8pt" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_gravity="center_horizontal"
+        android:background="#EEEFFF" />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ListView
+        android:id="@+id/lld"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="#EEEFFF"
+        android:dividerHeight="1px" />
+</LinearLayout>
+</LinearLayout>

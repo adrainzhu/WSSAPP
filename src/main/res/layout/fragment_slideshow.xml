@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/slideframent"
+    tools:context=".ui.slideshow.SlideshowFragment"
+    android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/button2"
+            android:text="当前成品信息"
+            android:textColor="#ffffff"
+            android:textSize="11pt" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <View
+                android:layout_width="1dip"
+                android:layout_height="30dp"
+                android:layout_gravity="center_horizontal"
+                android:background="#EEEFFF" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_weight="4"
+                android:background="@color/button1"
+                android:text="批次"
+                android:textSize="5pt"
+                tools:ignore="TextSizeCheck" />
+
+            <View
+                android:layout_width="1dip"
+                android:layout_height="30dp"
+                android:layout_gravity="center_horizontal"
+                android:background="#EEEFFF" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_weight="4"
+                android:background="@color/button1"
+                android:text="状态"
+                android:textSize="5pt"
+                tools:ignore="TextSizeCheck" />
+
+            <View
+                android:layout_width="1dip"
+                android:layout_height="30dp"
+                android:layout_gravity="center_horizontal"
+                android:background="#EEEFFF" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="5"
+                android:background="@color/button1"
+                android:text="扫描时间"
+                android:textSize="5pt"
+                tools:ignore="TextSizeCheck" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_gravity="center_horizontal"
+            android:background="#000000" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:id="@+id/lot"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_weight="4"
+                android:background="@color/button1"
+                android:textSize="5pt" />
+
+            <View
+                android:layout_width="1dip"
+                android:layout_height="30dp"
+                android:layout_gravity="center_horizontal"
+                android:background="#EEEFFF" />
+
+            <TextView
+                android:id="@+id/lotstatus"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_weight="4"
+                android:background="@color/button1"
+                android:textSize="5pt" />
+
+            <View
+                android:layout_width="1dip"
+                android:layout_height="30dp"
+                android:layout_gravity="center_horizontal"
+                android:background="#EEEFFF" />
+
+            <TextView
+                android:id="@+id/lotsdate"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="5"
+                android:background="@color/button1"
+                android:textSize="5pt" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/button2"
+                android:text="已扫描成品信息"
+                android:textColor="#ffffff"
+                android:textSize="11pt" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <View
+                    android:layout_width="1dip"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="#EEEFFF" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="4"
+                    android:background="@color/button1"
+                    android:text="批次"
+                    android:textSize="5pt"
+                    tools:ignore="TextSizeCheck" />
+
+                <View
+                    android:layout_width="1dip"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="#EEEFFF" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="4"
+                    android:background="@color/button1"
+                    android:text="状态"
+                    android:textSize="5pt"
+                    tools:ignore="TextSizeCheck" />
+
+                <View
+                    android:layout_width="1dip"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="#EEEFFF" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="5"
+                    android:background="@color/button1"
+                    android:text="扫描时间"
+                    android:textSize="5pt"
+                    tools:ignore="TextSizeCheck" />
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/mylots"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>

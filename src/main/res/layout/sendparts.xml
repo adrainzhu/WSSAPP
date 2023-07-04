@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <HorizontalScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="185px"
+            android:layout_height="80dp"
+            android:id="@+id/s_lh"
+            android:textSize="5pt" />
+        <View
+            android:layout_width="1dip"
+            android:layout_height="80dp"
+            android:layout_gravity="center_horizontal"
+            android:background="#EEEFFF" />
+
+        <TextView
+            android:layout_width="225px"
+            android:layout_height="80dp"
+            android:id="@+id/info"
+            android:textSize="5pt" />
+        <View
+            android:layout_width="1dip"
+            android:layout_height="80dp"
+            android:layout_gravity="center_horizontal"
+            android:background="#EEEFFF" />
+
+
+        <EditText
+            android:layout_width="90px"
+            android:layout_height="80dp"
+            android:id="@+id/pc"
+            android:textSize="5pt" />
+        <View
+            android:layout_width="1dip"
+            android:layout_height="80dp"
+            android:layout_gravity="center_horizontal"
+            android:background="#EEEFFF" />
+        <TextView
+            android:layout_width="90px"
+            android:layout_height="80dp"
+            android:id="@+id/plant"
+            android:textSize="5pt" />
+        <View
+            android:layout_width="1dip"
+            android:layout_height="80dp"
+            android:layout_gravity="center_horizontal"
+            android:background="#EEEFFF" />
+
+        <EditText
+            android:layout_width="135px"
+            android:layout_height="80dp"
+            android:id="@+id/sendnum"
+            android:textSize="5pt" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:id="@+id/deletebtn"
+            android:text="DETETE"
+            android:textColor="#FFFFFF"
+            android:background="#F5222D"/>
+
+    </LinearLayout>
+    </HorizontalScrollView>
+</LinearLayout>

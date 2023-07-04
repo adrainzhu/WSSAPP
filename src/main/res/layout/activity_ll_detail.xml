@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    android:theme="@style/Theme.DingTaiHW.NoActionBar"
+    tools:context=".ui.LL_Detail">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/button2"
+        android:text="领料单详细信息"
+        android:textColor="#FFFFFF"
+        android:textSize="10pt" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="4"
+            android:background="@color/button1"
+            android:text="    料     号"
+            android:textSize="5pt" />
+
+        <View
+            android:layout_width="1dip"
+            android:layout_height="match_parent"
+            android:background="#EEEFFF" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="5"
+            android:background="@color/button1"
+            android:text="      描        述"
+            android:textSize="5pt" />
+
+        <View
+            android:layout_width="1dip"
+            android:layout_height="match_parent"
+            android:background="#EEEFFF" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="3"
+            android:background="@color/button1"
+            android:text="材料类别"
+            android:textSize="5pt" />
+
+        <View
+            android:layout_width="1dip"
+            android:layout_height="match_parent"
+            android:background="#EEEFFF" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:background="@color/button1"
+            android:text="数量"
+            android:textSize="5pt" />
+
+        <View
+            android:layout_width="1dip"
+            android:layout_height="match_parent"
+            android:background="#EEEFFF" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="3"
+            android:background="@color/button1"
+            android:text="指定仓别"
+            android:textSize="5pt" />
+
+        <View
+            android:layout_width="1dip"
+            android:layout_height="match_parent"
+            android:background="#EEEFFF" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="3"
+            android:background="@color/button1"
+            android:text="指定批次"
+            android:textSize="5pt" />
+
+        <View
+            android:layout_width="1dip"
+            android:layout_height="match_parent"
+            android:background="#EEEFFF" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="4"
+            android:background="@color/button1"
+            android:text="备注"
+            android:textSize="5pt" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:background="#000000" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:orientation="horizontal">
+
+        <ListView
+            android:id="@+id/requestpartslist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="#EEEFFF"
+            android:dividerHeight="1px" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/button2"
+        android:text="建议发料信息"
+        android:textColor="#FFFFFF"
+        android:textSize="10pt" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:background="#000000" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="4"
+            android:background="@color/button1"
+            android:text="     料     号"
+            android:textSize="5pt" />
+
+        <View
+            android:layout_width="1dip"
+            android:layout_height="match_parent"
+            android:background="#EEEFFF" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="5"
+            android:background="@color/button1"
+            android:text="        品     名"
+            android:textSize="5pt" />
+
+        <View
+            android:layout_width="1dip"
+            android:layout_height="match_parent"
+            android:background="#EEEFFF" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="2"
+            android:background="@color/button1"
+            android:text="仓别"
+            android:textSize="5pt" />
+
+        <View
+            android:layout_width="1dip"
+            android:layout_height="match_parent"
+            android:background="#EEEFFF" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="2"
+            android:background="@color/button1"
+            android:text="批次"
+            android:textSize="5pt" />
+
+        <View
+            android:layout_width="1dip"
+            android:layout_height="match_parent"
+            android:background="#EEEFFF" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="2"
+            android:background="@color/button1"
+            android:text="架位"
+            android:textSize="5pt" />
+
+        <View
+            android:layout_width="1dip"
+            android:layout_height="match_parent"
+            android:background="#EEEFFF" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="3"
+            android:background="@color/button1"
+            android:text="实发数量"
+            android:textSize="5pt" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:orientation="horizontal">
+
+        <ListView
+            android:id="@+id/suggestpartslist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="#EEEFFF"
+            android:dividerHeight="1px" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/button2"
+        android:text="扫码发料信息"
+        android:textColor="#FFFFFF"
+        android:textSize="10pt" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="185px"
+            android:layout_height="30dp"
+            android:background="@color/button1"
+            android:text="     料     号"
+            android:textSize="5pt" />
+
+        <View
+            android:layout_width="1dip"
+            android:layout_height="match_parent"
+            android:background="#EEEFFF" />
+
+        <TextView
+            android:layout_width="225px"
+            android:layout_height="30dp"
+            android:background="@color/button1"
+            android:text="        品     名"
+            android:textSize="5pt" />
+
+
+        <View
+            android:layout_width="1dip"
+            android:layout_height="match_parent"
+            android:background="#EEEFFF" />
+
+        <TextView
+            android:layout_width="90px"
+            android:layout_height="30dp"
+            android:background="@color/button1"
+            android:text="批次"
+            android:textSize="5pt" />
+
+        <View
+            android:layout_width="1dip"
+            android:layout_height="match_parent"
+            android:background="#EEEFFF" />
+
+        <TextView
+            android:layout_width="90px"
+            android:layout_height="30dp"
+            android:background="@color/button1"
+            android:text="plant"
+            android:textSize="5pt" />
+
+        <View
+            android:layout_width="1dip"
+            android:layout_height="match_parent"
+            android:background="#EEEFFF" />
+
+        <TextView
+            android:layout_width="135px"
+            android:layout_height="30dp"
+            android:background="@color/button1"
+            android:text="实发数量"
+            android:textSize="5pt" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal">
+        <ListView
+            android:id="@+id/senddpartslist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="#EEEFFF"
+            android:dividerHeight="1px" />
+    </LinearLayout>
+    <com.example.dingtaihw.Model.LL.DragFloatActionButton
+        android:id="@+id/mybtn"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_gravity="bottom|end"
+        android:backgroundTint="@color/button2"
+        android:clickable="true"
+        android:src="@drawable/dtsubmit" />
+</LinearLayout>
