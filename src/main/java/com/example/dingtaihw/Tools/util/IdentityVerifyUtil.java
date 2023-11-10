@@ -12,8 +12,8 @@ import java.util.Map;
 
 /**
  * description :
- * author ：JHY
- * date : 2020/6/3
+ * author ：ZZH
+ * date : 2023/6/3
  * version : 1.0
  */
 public class IdentityVerifyUtil {
@@ -23,22 +23,15 @@ public class IdentityVerifyUtil {
     private String SPK = null;
     //秘钥信息
     private String SECRET = null;
-
     private static IdentityVerifyUtil instance;
-
     public static synchronized IdentityVerifyUtil getInstance() {
         if (instance == null) {
             instance = new IdentityVerifyUtil();
         }
         return instance;
     }
-
     private IdentityVerifyUtil() {
     }
-
-
-
-
     /**
      * 获取请求头信息
      * @param token

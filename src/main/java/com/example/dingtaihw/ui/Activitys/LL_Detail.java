@@ -1,19 +1,17 @@
-package com.example.dingtaihw.ui;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.dingtaihw.ui.Activitys;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Looper;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.dingtaihw.DataBase.DB_EUtils;
-import com.example.dingtaihw.MainActivity;
-import com.example.dingtaihw.Model.Goods;
+import com.example.dingtaihw.Model.LL.DragFloatActionButton;
 import com.example.dingtaihw.Model.LL.RequestParts;
 import com.example.dingtaihw.Model.LL.SendParts;
 import com.example.dingtaihw.Model.LL.SuggestParts;
@@ -22,9 +20,6 @@ import com.example.dingtaihw.Tools.util.RequestHandler;
 import com.example.dingtaihw.ui.gallery.RequestPartsAdapter;
 import com.example.dingtaihw.ui.gallery.SendPartsAdapter;
 import com.example.dingtaihw.ui.gallery.SuggestPartsAdapter;
-import com.example.dingtaihw.ui.home.GoodAdapter;
-import com.example.dingtaihw.ui.home.HomeFragment;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.honeywell.aidc.AidcManager;
 import com.honeywell.aidc.BarcodeFailureEvent;
 import com.honeywell.aidc.BarcodeReadEvent;
@@ -33,11 +28,8 @@ import com.honeywell.aidc.InvalidScannerNameException;
 import com.honeywell.aidc.ScannerUnavailableException;
 import com.honeywell.aidc.TriggerStateChangeEvent;
 import com.honeywell.aidc.UnsupportedPropertyException;
-import com.example.dingtaihw.Model.LL.DragFloatActionButton;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -48,16 +40,15 @@ public class LL_Detail extends AppCompatActivity implements BarcodeReader.Barcod
     String type;
     String pushuser;
     String requestid;
-    private AidcManager manager;
-    private BarcodeReader barcodeReader;
     List<RequestParts> requestParts = new ArrayList<>();
     List<SuggestParts> suggestParts = new ArrayList<>();
     List<SendParts> sendParts = new ArrayList<>();
     ListView requestlistView;
     ListView suggestListView;
-
     ListView sendListView;
     SendPartsAdapter sendPartsAdapter;
+    private AidcManager manager;
+    private BarcodeReader barcodeReader;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,10 +84,10 @@ public class LL_Detail extends AppCompatActivity implements BarcodeReader.Barcod
                 suggestListView.setAdapter(suggestPartsAdapter);
                 requestlistView.setAdapter(requestPartsAdapter);
             } catch (Exception e) {
-                System.out.println(e.toString());
+                System.out.println(e);
             }
         } catch (Exception e) {
-            System.out.println(e.toString());
+            System.out.println(e);
         }
         sendListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -108,76 +99,79 @@ public class LL_Detail extends AppCompatActivity implements BarcodeReader.Barcod
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                HashMap<String, Integer> s_map = new HashMap<>();//建议发料map
-                HashMap<String, Integer> f_map = new HashMap<>();//实际发料map;
-                boolean isequal = true;
-                if (suggestParts.size() > 0 && sendParts.size() > 0) {
-                    //遍历List维护HashMap
-                    for (int i = 0; i < suggestParts.size(); i++) {
-                        try {
-
-                            if (s_map.containsKey(suggestParts.get(i).getLh())) {
-                                int t = s_map.get(suggestParts.get(i).getLh()) + Integer.parseInt(suggestParts.get(i).getSuggestnum());
-                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                                    s_map.replace(suggestParts.get(i).getLh(), s_map.get(suggestParts.get(i).getSuggestnum()), t);
+                try {
+                    HashMap<String, Integer> s_map = new HashMap<>();//建议发料map
+                    HashMap<String, Integer> f_map = new HashMap<>();//实际发料map;
+                    boolean isequal = true;
+                    if (suggestParts.size() > 0 && sendParts.size() > 0) {
+                        //遍历List维护HashMap
+                        for (int i = 0; i < suggestParts.size(); i++) {
+                            try {
+                                if (s_map.containsKey(suggestParts.get(i).getLh())) {
+                                    int t = s_map.get(suggestParts.get(i).getLh()) + Integer.parseInt(suggestParts.get(i).getSuggestnum());
+                                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                                        s_map.replace(suggestParts.get(i).getLh(), s_map.get(suggestParts.get(i).getSuggestnum()), t);
+                                    }
+                                } else {
+                                    s_map.put(suggestParts.get(i).getLh(), Integer.parseInt(suggestParts.get(i).getSuggestnum()));
                                 }
-                            } else {
-                                s_map.put(suggestParts.get(i).getLh(), Integer.parseInt(suggestParts.get(i).getSuggestnum()));
+                            } catch (Exception e) {
+                                System.out.println(e);
                             }
-                        } catch (Exception e) {
-                            System.out.println(e.toString());
                         }
-                    }
-                    for (int i = 0; i < sendParts.size(); i++) {
-                        try {
-                            if (f_map.containsKey(sendParts.get(i).getLh())) {
-                                int t = f_map.get(sendParts.get(i).getLh()) + Integer.parseInt(sendParts.get(i).getSendnum());
-                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                                    f_map.replace(sendParts.get(i).getLh(), f_map.get(sendParts.get(i).getSendnum()), t);
+                        for (int i = 0; i < sendParts.size(); i++) {
+                            try {
+                                System.out.println(sendParts.get(i).getLh());
+                                if (f_map.containsKey(sendParts.get(i).getLh())) {
+                                    int t = f_map.get(sendParts.get(i).getLh()) + Integer.parseInt(sendParts.get(i).getSendnum());
+                                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                                        f_map.replace(sendParts.get(i).getLh(), f_map.get(sendParts.get(i).getSendnum()), t);
+                                    }
+                                } else {
+                                    f_map.put(sendParts.get(i).getLh(), Integer.parseInt(sendParts.get(i).getSendnum()));
                                 }
-                            } else {
-                                f_map.put(sendParts.get(i).getLh(), Integer.parseInt(sendParts.get(i).getSendnum()));
+                            } catch (Exception e) {
+                                System.out.println(e);
                             }
-                        } catch (Exception e) {
-                            System.out.println(e.toString());
                         }
-                    }
-                    //比较两个HashMap
-                    if (s_map.size() != f_map.size()) {
-                        isequal = false;
-                    }
-                    for (Map.Entry<String, Integer> entry : s_map.entrySet()) {
-                        if (f_map.get(entry.getKey()) != entry.getValue()) {
+                        //比较两个HashMap
+                        if (s_map.size() != f_map.size()) {
                             isequal = false;
                         }
-                    }
-                    if (isequal) {
-                        Toast.makeText(LL_Detail.this, "发料成功", Toast.LENGTH_LONG).show();
-                        try {
-                            Runnable httptask = new Runnable() {
-                                @Override
-                                public void run() {
-                                    RequestHandler handler = new RequestHandler();
-                                    handler.submitRequest(requestid, pushuser, sendParts);
-                                }
-                            };
-                            Thread thread = new Thread(httptask);
-                            thread.start();
-                        } catch (Exception e) {
-                            System.out.println(e.toString());
+                        for (Map.Entry<String, Integer> entry : s_map.entrySet()) {
+                            if (f_map.get(entry.getKey()) != entry.getValue()) {
+                                isequal = false;
+                            }
+                        }
+                        if (isequal) {
+                            Toast.makeText(LL_Detail.this, "发料成功", Toast.LENGTH_LONG).show();
+                            try {
+                                Runnable httptask = new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        RequestHandler handler = new RequestHandler();
+                                        handler.submitRequest(requestid, pushuser, sendParts);
+                                    }
+                                };
+                                Thread thread = new Thread(httptask);
+                                thread.start();
+                            } catch (Exception e) {
+                                System.out.println(e);
+                            }
+
+
+                        } else {
+                            Toast.makeText(LL_Detail.this, "发料信息与建议信息不一致，请检查", Toast.LENGTH_LONG).show();
                         }
 
 
                     } else {
-                        Toast.makeText(LL_Detail.this, "发料信息与建议信息不一致，请检查", Toast.LENGTH_LONG).show();
+                        Toast.makeText(LL_Detail.this, "无建议发料或扫码发料信息", Toast.LENGTH_LONG).show();
                     }
 
-
-                } else {
-                    Toast.makeText(LL_Detail.this, "无建议发料或扫码发料信息", Toast.LENGTH_LONG).show();
+                } catch (Exception e) {
+                    Toast.makeText(LL_Detail.this, e.toString(), Toast.LENGTH_LONG).show();
                 }
-
-
             }
         });
     }
@@ -216,15 +210,21 @@ public class LL_Detail extends AppCompatActivity implements BarcodeReader.Barcod
             Runnable oracleTask = new Runnable() {
                 @Override
                 public void run() {
-                    SendParts sendPart = new SendParts();
-                    String raw = barcodeReadEvent.getBarcodeData();
-                    String[] result = raw.split("\\+");
-                    sendPart.setLh(result[0]);
-                    sendPart.setPno(result[1]);
-                    sendPart.setSendnum(result[2]);
-                    sendPart = DB_EUtils.getPartsinfo(sendPart);
-                    sendParts.add(sendPart);
+                    try {
+                        SendParts sendPart = new SendParts();
+                        String raw = barcodeReadEvent.getBarcodeData();
+                        String[] result = raw.split("\\+");
+                        sendPart.setLh(result[0]);
+                        sendPart.setPno(result[1]);
+                        sendPart.setSendnum(result[2]);
+                        sendPart = DB_EUtils.getPartsinfo(sendPart);
+                        sendParts.add(sendPart);
 
+                    } catch (Exception e) {
+                        Looper.prepare();
+                        Toast.makeText(LL_Detail.this, e.toString(), Toast.LENGTH_LONG).show();
+                        Looper.loop();
+                    }
                 }
             };
             Thread thread = new Thread(oracleTask);
@@ -239,12 +239,12 @@ public class LL_Detail extends AppCompatActivity implements BarcodeReader.Barcod
                     }
                 });
             } catch (Exception e) {
-                System.out.println(e.toString());
+                System.out.println(e);
             }
 
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println(e.toString());
+            System.out.println(e);
         }
 
 

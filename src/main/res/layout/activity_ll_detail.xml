@@ -7,7 +7,7 @@
     android:fitsSystemWindows="true"
     android:orientation="vertical"
     android:theme="@style/Theme.DingTaiHW.NoActionBar"
-    tools:context=".ui.LL_Detail">
+    tools:context=".ui.Activitys.LL_Detail">
 
     <TextView
         android:layout_width="match_parent"

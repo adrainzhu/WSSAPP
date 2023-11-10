@@ -6,21 +6,27 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/out1"
+            android:icon="@drawable/clrk"
             android:title="材料入库" />
         <item
             android:id="@+id/nav_gallery"
-            android:icon="@drawable/out2"
+            android:icon="@drawable/clck"
             android:title="材料出库" />
         <item
             android:id="@+id/nav_slideshow"
-            android:icon="@drawable/in1"
+            android:icon="@drawable/cprk"
             android:title="成品入库" />
         <item android:id="@+id/nav_lotout"
-            android:icon="@drawable/dtlogo"
+            android:icon="@drawable/out"
             android:title="成品出库"/>
         <item android:id="@+id/nav_setting"
-            android:icon="@drawable/dtlogo"
+            android:icon="@drawable/setting"
             android:title="系统设置"/>
+        <item android:id="@+id/nav_location"
+            android:icon="@drawable/location"
+            android:title="成品上架"/>
+        <item android:id="@+id/nav_inventory"
+            android:icon="@drawable/inventory"
+            android:title="资产盘点"/>
     </group>
 </menu>

@@ -1,7 +1,6 @@
 package com.example.dingtaihw.ui.gallery;
 
 import android.content.Context;
-import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +14,6 @@ import androidx.annotation.Nullable;
 
 import com.example.dingtaihw.Model.LL.SendParts;
 import com.example.dingtaihw.R;
-import com.example.dingtaihw.ui.LL_Detail;
 
 import java.util.List;
 
@@ -50,7 +48,8 @@ public class SendPartsAdapter extends ArrayAdapter<SendParts> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         SendParts sendParts = getItem(position);
         View view = LayoutInflater.from(getContext()).inflate(R.layout.sendparts, parent, false);
-        TextView lhview = view.findViewById(R.id.s_lh);
+        EditText lhview = view.findViewById(R.id.s_lh);
+        lhview.addTextChangedListener(new CustomTextWatcher(lhview,sendParts));
         TextView infoview = view.findViewById(R.id.info);
         EditText pcview = view.findViewById(R.id.pc);
         pcview.addTextChangedListener(new CustomTextWatcher(pcview,sendParts));

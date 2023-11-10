@@ -102,11 +102,11 @@ public class MainActivity extends AppCompatActivity  {
         TextView userid = headview.findViewById(R.id.idtext);
         TextView name = headview.findViewById(R.id.textView);
         userid.setText(bundle.getString("userid"));
-        name.setText(bundle.getString("username"));
+        name.setText(bundle.getString("showname"));
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,R.id.nav_lotout,R.id.nav_setting)
+                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,R.id.nav_lotout,R.id.nav_setting,R.id.nav_location)
                 .setOpenableLayout(drawer)
                 .build();
 

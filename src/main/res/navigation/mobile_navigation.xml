@@ -32,4 +32,9 @@
         android:name="com.example.dingtaihw.ui.Settings.SettingsFragment"
         android:label="系统设置"
         tools:layout="@layout/fragment_settings"/>
+    <fragment
+        android:id="@+id/nav_location"
+        android:name="com.example.dingtaihw.ui.location.LocationFragment"
+        android:label="成品上架"
+        tools:layout="@layout/fragment_location"/>
 </navigation>

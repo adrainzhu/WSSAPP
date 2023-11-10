@@ -144,9 +144,6 @@ getActivity().runOnUiThread(new Runnable() {
                                     donelot.setAdapter(lotAdapter);
                                 }
                             });
-
-                            lots.add(new LotItem("123", "SUCCESS", "456"));
-                            System.out.println("breakpoint2");
                         } else if (r == -1) {
 
                             getActivity().runOnUiThread(new Runnable() {

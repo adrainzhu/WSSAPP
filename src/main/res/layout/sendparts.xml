@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <TextView
+        <EditText
             android:layout_width="185px"
             android:layout_height="80dp"
             android:id="@+id/s_lh"

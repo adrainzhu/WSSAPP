@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="5"
+            android:background="@color/button1"
+            android:id="@+id/material"
+            android:textSize="6pt" />
+        <View
+            android:layout_width="1dip"
+            android:layout_height="match_parent"
+            android:background="#EEEFFF" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="3"
+            android:background="@color/button1"
+            android:id="@+id/Lotid"
+            android:textSize="6pt" />
+        <View
+            android:layout_width="1dip"
+            android:layout_height="match_parent"
+            android:background="#EEEFFF" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="2"
+            android:background="@color/button1"
+            android:id="@+id/Lotqty"
+            android:textSize="6pt" />
+        <View
+            android:layout_width="1dip"
+            android:layout_height="match_parent"
+            android:background="#EEEFFF" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="3"
+            android:background="@color/button1"
+            android:id="@+id/Productid"
+            android:textSize="6pt" />
+    </LinearLayout>
+
+</LinearLayout>

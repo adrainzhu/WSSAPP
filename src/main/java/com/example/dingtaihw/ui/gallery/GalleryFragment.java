@@ -7,27 +7,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 
 import com.example.dingtaihw.DataBase.DB_EUtils;
-import com.example.dingtaihw.MainActivity;
 import com.example.dingtaihw.Model.ll_item;
 import com.example.dingtaihw.R;
 import com.example.dingtaihw.databinding.FragmentGalleryBinding;
-import com.example.dingtaihw.ui.LL_Detail;
+import com.example.dingtaihw.ui.Activitys.LL_Detail;
 import com.honeywell.aidc.AidcManager;
 import com.honeywell.aidc.BarcodeReader;
 
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Timer;
 
 
 public class GalleryFragment extends Fragment {

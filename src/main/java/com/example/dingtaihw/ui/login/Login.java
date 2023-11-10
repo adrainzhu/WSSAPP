@@ -66,6 +66,7 @@ public class Login extends AppCompatActivity {
                             String result;
                             String id;
                             String userid;
+                            String showname;
                             result = DBUtils.getValue("select status from UF_SMUSER where yhm='" + username + "'");
                             if (result.equals("1")) {
                                 Looper.prepare();
@@ -77,11 +78,12 @@ public class Login extends AppCompatActivity {
                                 result = DBUtils.getValue("select mm from UF_SMUSER where yhm='" + username + "'");
                                 if (result.equals(password)) {
                                     Looper.prepare();
+                                    showname=DBUtils.getValue("select xm from UF_SMUSER where yhm='" + username + "'");
                                     id=DBUtils.getValue("select gh from UF_SMUSER where yhm='" + username + "'");
-                                    userid=DBUtils.getUserid(id);
-                                    System.out.println("id="+id);
                                     bundle.putString("userid",id);
                                     bundle.putString("username",username);
+                                    userid=DBUtils.getUserid(id);
+                                    bundle.putString("showname",showname);
                                     bundle.putString("pushid",userid);
                                     intent.putExtras(bundle);
                                     startActivity(intent);

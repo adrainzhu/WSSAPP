@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/dtbackground"
+    tools:context=".ui.location.LocationFragment">
+
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="500dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="5dp"
+        android:background="#50FFFFFF"
+        android:gravity="center_horizontal"
+        android:paddingLeft="8dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="2"
+                android:layout_gravity="bottom"
+                android:src="@drawable/loticon" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:gravity="bottom"
+                android:text="Lot ID:"
+                android:textColor="#000000"
+                android:textSize="35dp" />
+
+            <EditText
+                android:id="@+id/lotid"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:gravity="bottom"
+                android:textColor="#ffffff"
+                android:textSize="20dp" />
+        </LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="100dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="2"
+                android:layout_gravity="bottom"
+                android:src="@drawable/jwicon" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:gravity="bottom"
+                android:text="架位ID:"
+                android:textColor="#000000"
+                android:textSize="35dp" />
+
+
+            <EditText
+                android:id="@+id/jwid"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="start"
+                android:layout_weight="3"
+                android:gravity="bottom"
+                android:textColor="#ffffff"
+                android:textSize="25dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/sjbtn"
+                android:layout_width="300dp"
+                android:background="@drawable/loginselector"
+                android:layout_gravity="center"
+                android:text="上      架"
+                android:textSize="100px"
+                android:textColor="@color/dtorange"
+                android:layout_height="100dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>

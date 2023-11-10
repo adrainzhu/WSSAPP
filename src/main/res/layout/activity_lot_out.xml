@@ -1,138 +1,142 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.lotout.LotoutFragment">
-    <LinearLayout
+    tools:context=".ui.Activitys.Lot_OutActivity">
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:orientation="horizontal"
-        android:background="@color/button3">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_weight="8"
-            android:text="内外箱比对清单"
-            android:textColor="#FFFFFF"
-            android:textSize="10pt" />
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_weight="1"
-            android:id="@+id/refresh"
-            android:background="@drawable/refresh"
-            android:backgroundTint="#FFFFFF"/>
-    </LinearLayout>
+        android:layout_height="wrap_content"
+        android:background="#174d57"
+        android:text="出货单详细信息"
+        android:textColor="#FFFFFF"
+        android:textSize="10pt" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:background="#f3f6f7">
         <TextView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:layout_weight="5"
             android:background="@color/button1"
-            android:text="流程编号"
-            android:textSize="8pt" />
+            android:text="Material Code"
+            android:textSize="6pt" />
         <View
             android:layout_width="1dip"
             android:layout_height="match_parent"
-            android:layout_gravity="center_horizontal"
             android:background="#EEEFFF" />
         <TextView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:layout_weight="3"
             android:background="@color/button1"
-            android:text="申请人"
-            android:textSize="8pt" />
+            android:text="Lotid"
+            android:textSize="6pt" />
         <View
             android:layout_width="1dip"
             android:layout_height="match_parent"
-            android:layout_gravity="center_horizontal"
             android:background="#EEEFFF" />
         <TextView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
+            android:layout_weight="2"
+            android:background="@color/button1"
+            android:text="Lot Qty"
+            android:textSize="6pt" />
+        <View
+            android:layout_width="1dip"
+            android:layout_height="match_parent"
+            android:background="#EEEFFF" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="30dp"
             android:layout_weight="3"
             android:background="@color/button1"
-            android:text="DN编号"
-            android:textSize="8pt" />
+            android:text="Productid"
+            android:textSize="6pt" />
     </LinearLayout>
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_gravity="center_horizontal"
-        android:background="#EEEFFF" />
+        android:layout_height="1dip"
+        android:background="#000000" />
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp">
+        android:layout_height="205dp"
+        android:orientation="horizontal"
+        android:background="#f3f6f7">
         <ListView
-            android:id="@+id/chd"
+            android:id="@+id/outlotdetaillist"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:divider="#EEEFFF"
             android:dividerHeight="1px" />
     </LinearLayout>
-    <LinearLayout
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:orientation="horizontal"
-        android:background="@color/button3">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_weight="8"
-            android:text="出库物流比对清单"
-            android:textColor="#FFFFFF"
-            android:textSize="10pt" />
-    </LinearLayout>
+        android:layout_height="wrap_content"
+        android:background="#174d57"
+        android:text="扫描Lot信息"
+        android:textColor="#FFFFFF"
+        android:textSize="10pt" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:background="#f3f6f7">
         <TextView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:layout_weight="5"
             android:background="@color/button1"
-            android:text="物流单号"
-            android:textSize="8pt" />
+            android:text="Lotid"
+            android:textSize="7pt" />
         <View
             android:layout_width="1dip"
             android:layout_height="match_parent"
-            android:layout_gravity="center_horizontal"
             android:background="#EEEFFF" />
         <TextView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:layout_weight="2"
             android:background="@color/button1"
-            android:text="申请人"
-            android:textSize="8pt" />
+            android:text="内标签"
+            android:textSize="7pt" />
         <View
             android:layout_width="1dip"
             android:layout_height="match_parent"
-            android:layout_gravity="center_horizontal"
             android:background="#EEEFFF" />
         <TextView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="5"
+            android:layout_height="30dp"
+            android:layout_weight="2"
             android:background="@color/button1"
-            android:text="流程编号"
-            android:textSize="8pt" />
+            android:text="外标签"
+            android:textSize="7pt" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="250dp">
+        android:layout_height="205dp"
+        android:orientation="horizontal"
+        android:background="#f3f6f7">
         <ListView
-            android:id="@+id/wuliu"
+            android:id="@+id/scanlotlist"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:divider="#EEEFFF"
             android:dividerHeight="1px" />
     </LinearLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:textSize="14pt"
+        android:id="@+id/submit"
+        android:textColor="#FFFFFF"
+        android:text="提           交"
+        android:background="#487c7c"
+        android:backgroundTint="#102e34"
+        android:textStyle="bold" />
 </LinearLayout>

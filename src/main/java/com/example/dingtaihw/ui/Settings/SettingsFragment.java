@@ -29,7 +29,10 @@ public class SettingsFragment extends Fragment {
     private FragmentSettingsBinding binding;
     private View root;
     EditText nodeid;
+    EditText outid;
+    EditText wuliuid;
     Map<String, String> current = new HashMap<>();
+    Map<String, String> change = new HashMap<>();
 
     public SettingsFragment() {
         // Required empty public constructor
@@ -61,7 +64,11 @@ public class SettingsFragment extends Fragment {
             thread.start();
             try{thread.join();
                 nodeid = binding.llNodeid;
+                outid=binding.outNodeid;
+                wuliuid=binding.wuliuNodeid;
                 nodeid.setText(current.get("Nodeid"));
+                outid.setText(current.get("Outid"));
+                wuliuid.setText(current.get("Wuliu"));
             }
             catch (Exception e)
             {
@@ -74,11 +81,14 @@ public class SettingsFragment extends Fragment {
         savebutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                change.put("Nodeid", String.valueOf(nodeid.getText()));
+                change.put("Outid", String.valueOf(outid.getText()));
+                change.put("Wuliu",String.valueOf(wuliuid.getText()));
                 try {
                     Runnable oracletask = new Runnable() {
                         @Override
                         public void run() {
-                            if (DB_EUtils.UpdateSettings(String.valueOf(nodeid.getText()))) {
+                            if (DB_EUtils.UpdateSettings(change)) {
                                 getActivity().runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {

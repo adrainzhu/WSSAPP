@@ -7,8 +7,8 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-    <string name="menu_home">扫码入库</string>
-    <string name="menu_gallery">扫码出库</string>
+    <string name="menu_home">材料入库</string>
+    <string name="menu_gallery">材料出库</string>
     <string name="menu_slideshow">成品入库</string>
     <string name="title_activity_login">仓库扫码系统</string>
     <string name="prompt_email">Email</string>

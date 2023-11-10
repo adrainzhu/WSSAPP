@@ -1,12 +1,16 @@
 package com.example.dingtaihw.Tools.util;
 
 import com.alibaba.fastjson.JSONObject;
+import com.example.dingtaihw.DataBase.DB_EUtils;
 import com.example.dingtaihw.Model.Entity.WorkflowDetailTableInfoEntity;
 import com.example.dingtaihw.Model.Entity.WorkflowRequestTableField;
 import com.example.dingtaihw.Model.Entity.WorkflowRequestTableRecord;
 import com.example.dingtaihw.Model.LL.SendParts;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,9 +22,10 @@ import cn.hutool.crypto.asymmetric.KeyType;
 import cn.hutool.crypto.asymmetric.RSA;
 import cn.hutool.http.HttpRequest;
 import cn.hutool.json.JSONUtil;
+import oracle.sql.DATE;
 
 public class RequestHandler {
-
+    SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     private static final Map<String,String> SYSTEM_CACHE = new HashMap <>();
     public static final String HOST = "http://10.18.101.39:8081";
     /**
@@ -54,9 +59,7 @@ public class RequestHandler {
                 .execute().body();
 
         // 打印ECOLOGY响应信息
-        System.out.println("testRegist()："+data);
         Map<String,Object> datas = JSONUtil.parseObj(data);
-
         //ECOLOGY返回的系统公钥
         SYSTEM_CACHE.put("SERVER_PUBLIC_KEY",StrUtil.nullToEmpty((String)datas.get("spk")));
         //ECOLOGY返回的系统密钥
@@ -98,10 +101,7 @@ public class RequestHandler {
     }
 
         public void submitRequest(String requestid, String userid,List<SendParts> sendParts) {
-            String token= SYSTEM_CACHE.get("SERVER_TOKEN");
-            if (StrUtil.isEmpty(token)){
-                token = (String) testGetoken(IdentityVerifyUtil.HOST ).get("token");
-            }
+            String token=(String) testGetoken(IdentityVerifyUtil.HOST ).get("token");
             String spk = SYSTEM_CACHE.get("SERVER_PUBLIC_KEY");
             Map<String, String> heads = new HashMap<>();
             heads.put("token", token);
@@ -119,9 +119,37 @@ public class RequestHandler {
             //params.put("remark", "restful接口提交流程测试");
             try {
                 String result = http.postDataSSL(url, params, heads);
+                DB_EUtils.submitscaninfo(sdf.format(new Date()),"材料出货",userid,result);
                 System.out.println(result);
             } catch (Exception e) {
-                e.printStackTrace();
+                DB_EUtils.submitscaninfo(sdf.format(new Date()),"材料出货",userid,e.toString());
+            }
+        }
+
+        public void outsubmitRequest(String requestid,String userid)
+        {  String token= SYSTEM_CACHE.get("SERVER_TOKEN");
+            if (StrUtil.isEmpty(token)){
+                token = (String) testGetoken(IdentityVerifyUtil.HOST ).get("token");
+            }
+            String spk = SYSTEM_CACHE.get("SERVER_PUBLIC_KEY");
+            Map<String, String> heads = new HashMap<>();
+            heads.put("token", token);
+            heads.put("appid", APPID);
+            RSA rsa = new RSA(null,spk);
+            //对用户信息进行加密传输,暂仅支持传输OA用户ID
+            String encryptUserid = rsa.encryptBase64(userid, CharsetUtil.CHARSET_UTF_8, KeyType.PublicKey);
+            heads.put("userid", encryptUserid);
+            String url = HOST + "/api/workflow/paService/submitRequest";
+            HttpManager http = new HttpManager();
+            Map<String, String> params = new HashMap<>();
+            params.put("requestId", requestid);
+            params.put("remark", "PDA扫码检查完成");
+            try {
+                String result = http.postDataSSL(url, params, heads);
+                DB_EUtils.submitscaninfo(sdf.format(new Date()),"成品出货",userid,result);
+                System.out.println(result);
+            } catch (Exception e) {
+                DB_EUtils.submitscaninfo(sdf.format(new Date()),"成品出货",userid,e.toString());
             }
         }
 

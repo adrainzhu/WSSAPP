@@ -38,6 +38,10 @@ public class CustomTextWatcher implements TextWatcher {
 
                  sendParts.setSendnum(text);
              }
+             else  if(editText.getId()==R.id.s_lh)
+             {
+                 sendParts.setLh(text);
+             }
          }
     }
 }
